@@ -48,6 +48,7 @@ namespace MonoTorrent.Client.Messages.UdpTracker
         public ConnectMessage()
             : base(0, DateTime.Now.GetHashCode())
         {
+
             connectionId = 0x41727101980; // Init connectionId as per spec
         }
 

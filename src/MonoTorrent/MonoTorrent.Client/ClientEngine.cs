@@ -49,7 +49,7 @@ namespace MonoTorrent.Client
     /// </summary>
     public class ClientEngine : IDisposable
     {
-        internal static MainLoop MainLoop = new MainLoop("Client Engine Loop");
+        public static readonly MainLoop MainLoop = new MainLoop("Client Engine Loop");
         private static Random random = new Random();
         #region Global Constants
 
@@ -424,7 +424,7 @@ namespace MonoTorrent.Client
 
             MainLoop.QueueWait((MainLoopTask)delegate {
                 for (int i = 0; i < torrents.Count; i++)
-                    torrents[i].Stop();
+                    torrents[i].BeginStop();
             });
         }
 
